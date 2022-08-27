@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500family=Lato:wght@300&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        .bgimage {
+            margin: 10px 0;
+            height: 97vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://source.unsplash.com/1200x600/?library");
+        }
+        
+        .quote {
+            color: black;
+            padding: 82px 34px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.5em;
+        }
+        
+        .heading {
+            text-align: center;
+            color: white;
+            font-family: 'DynaPuff', cursive;
+            font-size: 2rem;
+        }
+        
+        .container {
+            /* border: 2px solid red; */
+            background-color: white;
+            border-radius: 10px;
+        }
+        
+        .author {
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Lato', sans-serif;
+            color: red;
+            letter-spacing: 3.5px;
+            font-size: 1.5em;
+        }
+        
+        .btn {
+            display: inline-flex;
+            background-color: black;
+            justify-content: center;
+            color: white;
+            margin-left: 42%;
+            margin-right: 42%;
+            border-radius: 10px;
+            padding: 15px 15px;
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+        
+        #quotebtn {
+            background-color: black;
+        }
+        
+        .btntxt {
+            font-size: 1.4em;
+            color: white;
+        }
+        
+        .headingcontainer {
+            border: 2px solid white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: black;
+            color: white;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        
+        .maincontainer {
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgimage">
+        <div class="maincontainer">
+            <div class="headingcontainer">
+                <p class="heading">JavaScript Quote Generator</p>
+            </div>
+            <div class="container">
+                <p class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid tenetur odit nihil dolore alias incidunt.</p>
+                <p class="author">Author name</p>
+                <div class="btn"><button id="quotebtn"><p class="btntxt">New Quote</p></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const listQuotes = {
+
+            "Elvis Presley": "Take my hand, take my whole life too. For I can’t help falling in love with you.",
+            "A.A.Milne": "“If you live to be a hundred, I want to live to be a hundred minus one day so I never have to live without you.” ",
+            "Goo Goo Dolls": "You’re the closest to heaven, that I’ll ever be.",
+            "F. Scott Fitzgerald": "You are the finest, loveliest, tenderest, and most beautiful person I have ever known and even that is an understatement."
+        };
+        const getquote = document.querySelector(".quote");
+        const btn = document.querySelector("#quotebtn");
+        const getauthor = document.querySelector(".author");
+
+        function getRandom() {
+            const Keyss = Object.keys(listQuotes);
+            console.log(Keyss);
+            const randomNumber = Math.floor(Math.random() * Keyss.length);
+            const randomKey = Keyss[randomNumber];
+            const keyValue = listQuotes[randomKey];
+            getquote.innerText = keyValue;
+            getauthor.innerText = randomKey;
+            // console.log(randomKey);
+            // console.log(keyValue);
+        }
+        btn.addEventListener('click', getRandom);
+    </script>
+</body>
+
+</html>
